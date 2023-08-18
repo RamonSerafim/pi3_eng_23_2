@@ -126,8 +126,6 @@ Elaborar um relatório na qual conste.
 
 ​		Precisamos de uma fonte que alimente o driver, que usualmente se utiliza 15 V. Essa fonte é conectada a um CI oscilador e sua saída encontra um capacitor para tirar o offset dessa onda. Cada driver deve possuir sua "fonte" isolada, e o retificador isolador faz esse papel, retificando a onda quadrada encontramos 15VDC que será conectado a um optoacoplador, onde esse irá comandar a abertura ou fechamento dos mosfets. Portanto, o princípio de funcionamento do driver se resume a fonte + oscilador + capacitor + retificador isolador + optoacoplador + mosfet.
 
-​		Com o conhecimento adquirido no curso seria possível construir nosso próprio driver, porém, com o curto tempo de projeto foi escolhido encontrar esse dispositivo pronto no mercado.
-
 ​		Algumas empresas já possuem drivers prontos para vender como a Texas e Mouser, porém, precisamos das fontes isoladas para cada um. A Supplier possui todos os componentes sendo vendido em módulos separados, driver único ou duplo (acionando 1 ou 2 mosfet), fonte isolada para até 2 drivers e retificadores isoladores separadamente.  Como estamos montando um projeto para testes, é benéfico possuir um inversor modular pois caso ocorra algum erro de funcionamento é possível descobrir facilmente onde está sendo gerado e consertá-lo. 
 
 |            Componente            | Código Componente | Preço Supplier(R$/un) | Quantidade |  Total (R)  |
