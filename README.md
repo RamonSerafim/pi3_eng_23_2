@@ -136,6 +136,8 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 ​		Precisamos de uma fonte que alimente o driver, que usualmente se utiliza 15 V. Essa fonte é conectada a um CI oscilador e sua saída encontra um capacitor para tirar o offset dessa onda. Cada driver deve possuir sua "fonte" isolada, e o retificador isolador faz esse papel, retificando a onda quadrada encontramos 15VDC que será conectado a um optoacoplador, onde esse irá comandar a abertura ou fechamento dos mosfets. Portanto, o princípio de funcionamento do driver se resume a fonte + oscilador + capacitor + transformador isolador + retificador de meia onda + optoacoplador + mosfet.
 
 <img src="C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\modelo antigo.jpg" alt="modelo antigo" style="zoom: 67%;" />
+<img src="https://github.com/RamonSerafim/pi3_eng_23_2/tree/main/simulations/modelo antigo.jpg"/>
+![modelo antigo](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.JPG)
 
 ​		Conversado com o professor sobre o modelo da montagem, uma fora mais fácil de se montar esse esquemático foi com uma fonte já isolada presente no mercado. O circuito fica menor e será conectado diretamente no optoacoplador.
 
