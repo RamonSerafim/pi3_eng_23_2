@@ -121,8 +121,6 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ### Optoacoplador
 
-https://www.makerhero.com/blog/o-que-e-um-optoacoplador/#:~:text=Aplica%C3%A7%C3%B5es%20do%20optoacoplador,com%20circuitos%20de%20corrente%20alternada.
-
 ​		Podemos separar um optoacoplador em 2 partes, um LED infravermelho e um fototransistor. Quando o LED é acionado, a luz incide no transistor fazendo com que permita a condução de corrente.
 
 ### Transistor
