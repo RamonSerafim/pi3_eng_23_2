@@ -137,7 +137,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 <img src="C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\modelo antigo.jpg" alt="modelo antigo" style="zoom: 67%;" />
 <img src="https://github.com/RamonSerafim/pi3_eng_23_2/tree/main/simulations/modelo antigo.jpg"/>
-![modelo antigo](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.JPG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.JPG)
 
 ​		Conversado com o professor sobre o modelo da montagem, uma fora mais fácil de se montar esse esquemático foi com uma fonte já isolada presente no mercado. O circuito fica menor e será conectado diretamente no optoacoplador.
 
