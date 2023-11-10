@@ -135,13 +135,11 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Precisamos de uma fonte que alimente o driver, que usualmente se utiliza 15 V. Essa fonte é conectada a um CI oscilador e sua saída encontra um capacitor para tirar o offset dessa onda. Cada driver deve possuir sua "fonte" isolada, e o retificador isolador faz esse papel, retificando a onda quadrada encontramos 15VDC que será conectado a um optoacoplador, onde esse irá comandar a abertura ou fechamento dos mosfets. Portanto, o princípio de funcionamento do driver se resume a fonte + oscilador + capacitor + transformador isolador + retificador de meia onda + optoacoplador + mosfet.
 
-<img src="C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\modelo antigo.jpg" alt="modelo antigo" style="zoom: 67%;" />
-<img src="https://github.com/RamonSerafim/pi3_eng_23_2/tree/main/simulations/modelo antigo.jpg"/>
 ![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.JPG)
 
 ​		Conversado com o professor sobre o modelo da montagem, uma fora mais fácil de se montar esse esquemático foi com uma fonte já isolada presente no mercado. O circuito fica menor e será conectado diretamente no optoacoplador.
 
-<img src="C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\novo modelo.jpg" alt="modelo" style="zoom:67%;" />
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/novo%20modelo.JPG)
 
 ​		Algumas empresas já possuem drivers prontos para vender como a Texas e Mouser, porém, precisamos das fontes isoladas para cada um. A Supplier possui todos os componentes sendo vendido em módulos separados, driver único ou duplo (acionando 1 ou 2 mosfet), fonte isolada para até 2 drivers e retificadores isoladores separadamente.  Como estamos montando um projeto para testes, é benéfico possuir um inversor modular pois caso ocorra algum erro de funcionamento é possível descobrir facilmente onde está sendo gerado e consertá-lo. 
 
@@ -195,7 +193,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 Todos os três dependem de uma senoide (referência) e uma onda triangular (portadora), e são tratados somente para a topologia estudada nesse projeto, o inversor de ponte completa. Os elementos do circuito serão tratados como estão na figura abaixo.
 
-![Esquematico](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\Esquematico.JPG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico.JPG)
 
 O conceito de taxa de modulação da frequência (mf) será mencionado, essa é a relação entre as frequências da portadora e da referência:
 $$
@@ -212,7 +210,7 @@ A lógica para as chaves S1,...S4 é a seguinte:
 - S1 e S2 estão ligadas quando Vsen > Vtri  (Vout = +Vcc)
 - S3 e S4 estão ligadas quando Vsen < Vtri  (Vout = -Vcc)
 
-![demo_bipolar](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_bipolar.png)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_bipolar.png)
 
 
 Para utilizar esse esquema no circuito basta fazer a seguinte alteração no script fornecido: ativar a opção BIPOLAR_SPWM e desative a opção ALT_TRI
@@ -228,7 +226,7 @@ A lógica para as chaves S1,...S4 é a seguinte:
 - S3 está ligada quando -Vsen > Vtri
 - S4 está ligada quando Vsen < Vtri
 
-![demo_unipolar](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_unipolar.png)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_unipolar.png)
 
 
 Alterações para o script fornecido: Desative as opções BIPOLAR_SPWM e ALT_TRI
@@ -245,8 +243,7 @@ Lógica de chaveamento:
 - S2 está ligada quando Vsen > 0
 - S3 está ligada quando Vsen < 0
 
-![demo_unipolar_alternativa](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_unipolar_alternativa.png)
-
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_unipolar_alternativa.png)
 
 Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opção BIPOLAR_SPWM 
 
