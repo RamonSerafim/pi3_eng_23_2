@@ -126,9 +126,18 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Precisamos de uma fonte que alimente o driver, que usualmente se utiliza 15 V. Essa fonte é conectada a um CI oscilador e sua saída encontra um capacitor para tirar o offset dessa onda. Cada driver deve possuir sua "fonte" isolada, e o retificador isolador faz esse papel, retificando a onda quadrada encontramos 15VDC que será conectado a um optoacoplador, onde esse irá comandar a abertura ou fechamento dos mosfets. Portanto, o princípio de funcionamento do driver se resume a fonte + oscilador + capacitor + transformador isolador + retificador de meia onda + optoacoplador + mosfet.
 
-<img src="C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\modelo antigo.jpg" alt="modelo antigo" style="zoom: 67%;" />
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.JPG)
 
 ​		Conversado com o professor sobre o modelo da montagem, uma forma mais fácil de se montar esse esquemático foi utilizando uma fonte já isolada presente no mercado. O circuito fica menor e será conectado diretamente no driver com optoacoplador.
+
+
+
+
+
+# FOTO MODELO NOVO
+
+
+
 
 ​		Algumas empresas já possuem drivers prontos para vender como a Texas e Mouser, porém, precisamos das fontes isoladas para cada um. A Supplier possui todos os componentes sendo vendido em módulos separados, driver único ou duplo (acionando 1 ou 2 mosfet), fonte isolada para até 2 drivers e retificadores isoladores separadamente.  Como estamos montando um projeto para testes, é benéfico possuir um inversor modular pois caso ocorra algum erro de funcionamento é possível descobrir facilmente onde está sendo gerado e consertá-lo. 
 
@@ -179,11 +188,11 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		A forma mais simples de gerar um sinal PWM é utilizando uma onda triangular e uma fonte de tensão continua como referência. A imagem abaixo representa um sinal PWM com o tempo de ativação e desativação fixo, também chamado de duty cycle.
 
-![sinal PWM](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\sinal PWM.JPG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/sinal%20PWM.JPG)
 
 ​		A diferença para o sinal SPWM é que no lugar da tensão continua utilizamos um sinal senoidal como referência e uma onda triangular como moduladora. Ao realizar essa mudança, conseguimos encontrar na saída um sinal com duty cycle que varia de acordo com a comparação entre os sinais. 
 
-<img src="C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\sinal SPWM.JPG" alt="sinal SPWM" style="zoom:67%;" />
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/sinal%20SPWM.JPG)
 
 ​		A diferença entre os dois se da pela frequência de saída do SPWM se da pela senoide, que para utilização em motores se da em 60 Hz mas podendo ser alterado para a aplicação específica, já o PWM a frequência de saída se da pela frequência de comutação. PWM não necessita de filtros de saída.
 
@@ -211,7 +220,7 @@ explicar o micro controlador utilizado, timers, pwm, resolução...
 
 Todos os três dependem de uma senoide (referência) e uma onda triangular (portadora), e são tratados somente para a topologia estudada nesse projeto, o inversor de ponte completa. Os elementos do circuito serão tratados como estão na figura abaixo.
 
-![Esquematico](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\Esquematico.JPG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico.JPG)
 
 O conceito de taxa de modulação da frequência (mf) será mencionado, essa é a relação entre as frequências da portadora e da referência:
 $$
@@ -228,7 +237,7 @@ A lógica para as chaves S1,...S4 é a seguinte:
 - S1 e S2 estão ligadas quando Vsen > Vtri  (Vout = +Vcc)
 - S3 e S4 estão ligadas quando Vsen < Vtri  (Vout = -Vcc)
 
-![demo_bipolar](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_bipolar.png)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_bipolar.png)
 
 
 Para utilizar esse esquema no circuito basta fazer a seguinte alteração no script fornecido: ativar a opção BIPOLAR_SPWM e desative a opção ALT_TRI
@@ -244,7 +253,8 @@ A lógica para as chaves S1,...S4 é a seguinte:
 - S3 está ligada quando -Vsen > Vtri
 - S4 está ligada quando Vsen < Vtri
 
-![demo_unipolar](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_unipolar.png)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_unipolar.png)
+
 
 
 Alterações para o script fornecido: Desative as opções BIPOLAR_SPWM e ALT_TRI
@@ -261,7 +271,7 @@ Lógica de chaveamento:
 - S2 está ligada quando Vsen > 0
 - S3 está ligada quando Vsen < 0
 
-![demo_unipolar_alternativa](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_unipolar_alternativa.png)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_unipolar_alternativa.png)
 
 Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opção BIPOLAR_SPWM 
 
@@ -277,15 +287,15 @@ Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opç
 
 ​		Para a construção do Driver precisamos entender de uma coisa, a alimentação 12 V será feita por uma alimentação externa, portanto terá outra referência, após passar pela fonte chaveada isolada a referência será do sinal PWM. O esquemático para o driver será apresentado abaixo.
 
-![Esquematico driver](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Esquematico_driver.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico_driver.PNG)
 
 ​		Afim de deixar o circuito de acionamento compacto, utilizamos todos os componentes SMD, diminuindo o tamanho final. Abaixo será apresentado o layout da placa.
 
-![Layout driver](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Layout_driver.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Layout_driver.PNG)
 
 ​		A placa utilizada foi de face simples, precisando colocar um jumper manualmente. Abaixo será apresentado o driver já montado.
 
-![driver montado](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\driver_montado.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/driver_montado.PNG)
 
 ​		Para melhor suporte na placa de potencia, utilizamos barra pino duplo.
 
@@ -293,31 +303,33 @@ Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opç
 
 ​		Para a Placa de potência, precisamos separar em 3 referencias diferentes, a primeira sendo da alimentação dos drivers, a segunda sendo do micro controlador com seu sinal SPWM e a terceira sendo o barramento DC com os mosfets. O esquemático será apresentado abaixo.
 
-![Esquematico_Potencia](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Esquematico_Potencia.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico_Potencia.PNG)
+
 
 ​		A placa inicial de potência (versão 1) foi encontrado erros de posição dos barra pinos e em relação a referência, mesmo com adaptação efetuamos os testes com essa versão apresentada abaixo.
 
-![Layout_potencia_V1](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Layout_potencia_V1.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Layout_potencia_V1.PNG)
+
 
 ​		
 
 ​		Com o intuito de arrumar os erros anteriores para futuros projetos, ajustamos os defeitos de layout e a placa de potência final (versão 2) será apresentado abaixo.
 
-![Layout_potencia](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Layout_potencia.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Layout_potencia.PNG)
+
 
 ​	A placa utilizada foi de face simples, precisando colocar jumpers manualmente. Abaixo será apresentado a placa de potência montada (versão 1).
 
-![potencia_montada](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\potencia_montada.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/potencia_montada.PNG)
+
 
 
 
 ### Montagem Final
 
 ​		Com as placas prontas, a montagem foi feita e é demonstrada nas imagens abaixo.
-
-![placa_montada_horizontal](C:\Users\Usuario\Desktop\PI3\esquematicos e pci\imagens\placa_montada_horizontal.PNG)
-
-![placa_montada_vertical](C:\Users\Usuario\Desktop\PI3\esquematicos e pci\imagens\placa_montada_vertical.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/placa_montada_horizontal.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/placa_montada_vertical.PNG)
 
 
 
@@ -337,7 +349,7 @@ Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opç
 
 ​		A figura abaixo demonstra como ficou os sinais PWM juntamente com a frequência no canto inferior direito.
 
-![sinal_pwm](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\sinal_pwm.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/sinal_pwm.PNG)
 
 ​		O sinal permanece constante e com uma frequência de 5,017 kHz, validando o sinal.
 
@@ -349,7 +361,7 @@ Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opç
 
 ​		Aplicando o sinal PWM no driver com a alimentação +12 V, conseguimos o sinal de saída em +16 V e -3 V, sendo o esperado para a aplicação do projeto. A figura abaixo demonstra a saída do driver pelo osciloscópio.
 
-![sinal_driver](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\sinal_driver.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/sinal_driver.PNG)
 
 ​		O mesmo teste foi realizado para os 4 drivers e todos apresentaram a mesma forma de onda, validando que a saída está correta e ativará os mosfets.
 
@@ -363,19 +375,19 @@ Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opç
 
 ​		Vamos visualizar a tensão de cada braço do conversor,  o primeiro braço do inversor será demonstrado na imagem abaixo.
 
-![braco_positivo](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\braco_positivo.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/braco_positivo.PNG)
 
 ​		Podemos visualizar que está correto, como o barramento DC é de 25 V, a saída está entre 0 e +25 V pois a referência está sendo o barramento DC.
 
 ​		Agora vamos verificar o segundo braço do inversor, que será apresentado na imagem abaixo.
 
-![braco_negativo](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\braco_negativo.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/braco_negativo.PNG)
 
 ​		Como podemos visualizar a tensão está entre -12,8 V e 50,4 V, sendo que o correto seria estar com 0 e +25 V pois a referência de medida está sendo o barramento DC. Esse erro é proveniente da montagem da placa de potência, como foi a versão 1 adaptada com jumpers, pode ser uma conexão incorreta ocasionando esse erro. é desconsiderado erro nos drivers pois eles foram testados anteriormente e posteriormente e não foi apresentado erro.
 
 ​		Agora utilizando a função MATH do próprio osciloscópio conseguimos verificar a diferença entre os dois braços, sendo apresentado abaixo.
 
-![saida_inversor](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\saida_inversor.PNG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/saida_inversor.PNG)
 
 ​		Visualizando o resultado do inversor, a tensão de saída está entre -37,6 V e 75,2 V, diferente do esperado que seria -25 V e +25 V, isso ocorre pois um dos braços não está funcionando corretamente e deve ser ajustado nas próximas aplicações.
 
