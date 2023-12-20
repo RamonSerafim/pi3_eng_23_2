@@ -130,20 +130,13 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Uma pergunta plausível de se fazer é como se funciona um driver, quais componentes são utilizados e como encontrar um para tal aplicação, contudo, será explicado a seguir.
 
-​		Precisamos de uma fonte que alimente o driver, que usualmente se utiliza 15 V. Essa fonte é conectada a um CI oscilador e sua saída encontra um capacitor para tirar o offset dessa onda. Cada driver deve possuir sua "fonte" isolada, e o retificador isolador faz esse papel, retificando a onda quadrada encontramos 15VDC que será conectado a um optoacoplador, onde esse irá comandar a abertura ou fechamento dos mosfets. Portanto, o princípio de funcionamento do driver se resume a fonte + oscilador + capacitor + transformador isolador + retificador de meia onda + optoacoplador + mosfet.
+​		Precisamos de uma fonte que alimente o driver, que usualmente se utiliza 15 V. Essa fonte é conectada a um CI oscilador e sua saída encontra um capacitor para tirar o offset dessa onda. Cada driver deve possuir sua "fonte" isolada, e o retificador isolador faz esse papel, retificando a onda quadrada encontramos 15VDC que será conectado a um optoacoplador, onde esse irá comandar a abertura ou fechamento dos mosfets. Portanto, o princípio de funcionamento do driver se resume a fonte + oscilador + capacitor + transformador isolador + retificador de meia onda + optoacoplador + driver + mosfet.
 
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.JPG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.PNG)
 
 ​		Conversado com o professor sobre o modelo da montagem, uma forma mais fácil de se montar esse esquemático foi utilizando uma fonte já isolada presente no mercado. O circuito fica menor e será conectado diretamente no driver com optoacoplador.
 
-
-
-
-
-# FOTO MODELO NOVO
-
-
-
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/novo%20modelo.PNG)
 
 ​		Algumas empresas já possuem drivers prontos para vender como a Texas e Mouser, porém, precisamos das fontes isoladas para cada um. A Supplier possui todos os componentes sendo vendido em módulos separados, driver único ou duplo (acionando 1 ou 2 mosfet), fonte isolada para até 2 drivers e retificadores isoladores separadamente.  Como estamos montando um projeto para testes, é benéfico possuir um inversor modular pois caso ocorra algum erro de funcionamento é possível descobrir facilmente onde está sendo gerado e consertá-lo. 
 
