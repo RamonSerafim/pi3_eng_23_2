@@ -1,11 +1,7 @@
 Curso Superior em Engenharia Eletrônica
-
 Unidade Curricular: Projeto Integrador III
-
 Professor: Daniel Lohmann e Robinson Pizzio
-
 Florianópolis, Agosto de 2023
-
 Aluno: Ramon Busiquia Serafim 
                
 
@@ -15,7 +11,7 @@ Aluno: Ramon Busiquia Serafim
 
 ## Introdução
 
-​		Esse relatório tem a finalidade de apresentar a contrução, análises, simulações e a construção de um inversor monofásico, na parte de controle do chaveamento, levando em consideração planilha de custo.
+​		Esse relatório tem a finalidade de apresentar a construção, análises, simulações e a construção de um inversor monofásico, na parte de controle do chaveamento, levando em consideração planilha de custo.
 
 
 
@@ -34,12 +30,6 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 - Esquemático do projeto;
 - Projeto físico dos elementos do conversor escolhido:
 
-  - Projeto do físico do indutor/transformador; 
-
-  - Escolha dos capacitores do circuito; 
-
-  - Escolha dos diodos do circuito; 
-
   - Projeto dos componentes associados ao funcionamento do CI; 
 
   - Escolha do Driver para comandar o(s) transistor(es); 
@@ -53,34 +43,32 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ## Cronograma
 
-|    Data    |                          Descrição                           |
-| :--------: | :----------------------------------------------------------: |
-| 28/07/2023 |              Apresentação da unidade curricular              |
-|   04/08    |              Apresentação propostas de projeto               |
-|   11/08    |              Apresentação propostas de projeto               |
-|   18/08    |     Apresentação do cronograma e inicio da documentação      |
-|   25/08    |  Apresentação do diagrama de blocos e requisitos do projeto  |
-|   01/09    |        Desenvolvimento do projeto - Testes sinal SPWM        |
-|   08/09    |        Desenvolvimento do projeto - Testes sinal SPWM        |
-|   15/09    |                **Desenvolvimento do projeto**                |
-|   22/09    |                **Desenvolvimento do projeto**                |
-|   29/09    |                **Desenvolvimento do projeto**                |
-|   06/10    | **Apresentação dos projetos em formato de prova de conceito** |
-| 06/1010/10 |        Desenvolvimento do projeto - Testes sinal SPWM        |
-|   20/10    |             **Desenvolvimento do projeto final**             |
-|   27/10    |             **Desenvolvimento do projeto final**             |
-|   03/11    |             **Desenvolvimento do projeto final**             |
-|   10/11    |        **Apresentação do projeto final impementado**         |
-|   17/11    |           **Testes de operação do projeto final.**           |
-|   24/11    |           **Testes de operação do projeto final.**           |
-|   01/12    |           **Testes de operação do projeto final.**           |
-|   08/12    |     **Apresentação final da operação do projeto final.**     |
+|  **Data**  |                       **Descrição**                        |
+| :--------: | :--------------------------------------------------------: |
+| 28/07/2023 |             Apresentação da unidade curricular             |
+|   04/08    |             Apresentação propostas de projeto              |
+|   11/08    |             Apresentação propostas de projeto              |
+|   18/08    |    Apresentação do cronograma e inicio da documentação     |
+|   25/08    | Apresentação do diagrama de blocos e requisitos do projeto |
+|   01/09    |       Desenvolvimento do projeto - Testes sinal SPWM       |
+|   08/09    |       Desenvolvimento do projeto - Testes sinal SPWM       |
+|   15/09    |                 Desenvolvimento do projeto                 |
+|   22/09    |                 Desenvolvimento do projeto                 |
+|   29/09    |                 Desenvolvimento do projeto                 |
+|   06/10    | Apresentação dos projetos em formato de prova de conceito  |
+|   10/10    |       Desenvolvimento do projeto - Testes sinal SPWM       |
+|   20/10    |              Desenvolvimento do projeto final              |
+|   27/10    |              Desenvolvimento do projeto final              |
+|   03/11    |              Desenvolvimento do projeto final              |
+|   10/11    |         Apresentação do projeto final implementado         |
+|   17/11    |            Testes de operação do projeto final.            |
+|   24/11    |            Testes de operação do projeto final.            |
+|   01/12    |            Testes de operação do projeto final.            |
+|   08/12    |      Apresentação final da operação do projeto final.      |
 
 
 
-## Metodologia
-
-~~pesquisa ou desenvolvimento~~
+## Metodologia de desenvolvimento
 
 ​		A partir do circuito, analisar adequadamente e fazer simulações via Software e analisar os resultados.
 
@@ -90,13 +78,14 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Circuito representa em um banco de baterias com 50 VDC, ligada a um inversor, que conecta a um motor. Nosso projeto se encontra dentro do inversor, pois será a parte de alimentação para os drivers e conexões para o chaveamento.
 
+
+
 ## Requisitos do projeto Inversor Monofásico
 
 - Proteções contra sobretensão na entrada;
 - Tensão Nominal de Entrada: 50 VDC ;
 - Saída(s): Tensão = --- VAC eficaz;
 - Potência = -- W; 
-- Prever circuito de grampeamento de tensão sobre o transistor (snubber); 
 - Frequência operação (SPWM): 15 a 30 kHz;
 - Frequência de saída: 60 Hz.
 - Permitir 3 tipos de modulação
@@ -121,9 +110,11 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ### Optoacoplador
 
-​		Podemos separar um optoacoplador em 2 partes, um LED infravermelho e um fototransistor. Quando o LED é acionado, a luz incide no transistor fazendo com que permita a condução de corrente.
+​		Um optoacoplador funciona como um botão ou um relé que pode ser acionado eletricamente. Porém, diferentemente dos relés, os circuitos são completamente isolados, assim o circuito que aciona o optoacoplador não é influenciado pelo circuito acionado.
 
-### Transistor
+​		O circuito interno do optoacoplador pode ser separado em 2 partes, um LED infravermelho e um fototransistor. Quando o LED é acionado, a luz incide no transistor fazendo com que permita a condução de corrente.
+
+​		Para o nosso circuito, o sinal de entrada do optoacoplador será o sinal PWM, fazendo com que ative a chave somente no momento que que o sinal estiver alto.
 
 ### Driver
 
@@ -135,29 +126,48 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Precisamos de uma fonte que alimente o driver, que usualmente se utiliza 15 V. Essa fonte é conectada a um CI oscilador e sua saída encontra um capacitor para tirar o offset dessa onda. Cada driver deve possuir sua "fonte" isolada, e o retificador isolador faz esse papel, retificando a onda quadrada encontramos 15VDC que será conectado a um optoacoplador, onde esse irá comandar a abertura ou fechamento dos mosfets. Portanto, o princípio de funcionamento do driver se resume a fonte + oscilador + capacitor + transformador isolador + retificador de meia onda + optoacoplador + mosfet.
 
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/modelo%20antigo.JPG)
+<img src="C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\modelo antigo.jpg" alt="modelo antigo" style="zoom: 67%;" />
 
-​		Conversado com o professor sobre o modelo da montagem, uma fora mais fácil de se montar esse esquemático foi com uma fonte já isolada presente no mercado. O circuito fica menor e será conectado diretamente no optoacoplador.
-
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/novo%20modelo.JPG)
+​		Conversado com o professor sobre o modelo da montagem, uma forma mais fácil de se montar esse esquemático foi utilizando uma fonte já isolada presente no mercado. O circuito fica menor e será conectado diretamente no driver com optoacoplador.
 
 ​		Algumas empresas já possuem drivers prontos para vender como a Texas e Mouser, porém, precisamos das fontes isoladas para cada um. A Supplier possui todos os componentes sendo vendido em módulos separados, driver único ou duplo (acionando 1 ou 2 mosfet), fonte isolada para até 2 drivers e retificadores isoladores separadamente.  Como estamos montando um projeto para testes, é benéfico possuir um inversor modular pois caso ocorra algum erro de funcionamento é possível descobrir facilmente onde está sendo gerado e consertá-lo. 
 
-|            Componente            | Código Componente | Preço Supplier(R$/un) | Quantidade |  Total (R)  |
-| :------------------------------: | :---------------: | :-------------------: | :--------: | :---------: |
-|       Driver Duplo Isolado       |    DRO100D25A     |        640,00         |     2      |   1280,00   |
-| Fonte Chaveada 2 canais Isolados |     DS320-08A     |        180,00         |     1      |   180,00    |
-|     Transformador de  Pulso      |    TRM480D20A     |         55,00         |     2      |   110,00    |
-|     **Compra total Drivers**     |         -         |           -           |     -      | **1570,00** |
+|            Componente            | Código Componente | Preço Supplier(R$/un) | Quantidade | Total (Reais) |
+| :------------------------------: | :---------------: | :-------------------: | :--------: | :-----------: |
+|       Driver Duplo Isolado       |    DRO100D25A     |        640,00         |     2      |    1280,00    |
+| Fonte Chaveada 2 canais Isolados |     DS320-08A     |        180,00         |     1      |    180,00     |
+|     Transformador de  Pulso      |    TRM480D20A     |         55,00         |     2      |    110,00     |
+|     **Compra total Drivers**     |         -         |           -           |     -      |  **1570,00**  |
 
-  Afim de demonstrar a diferença ao construir o driver próprio, encontramos os componentes que constituem o driver na Mouser. Os itens listados são as principais peças para a sua montagem.
-    
+​		Para este projeto, iremos construir nosso próprio driver isolado, que possui optoacoplador interno, juntamente com uma fonte já isolada para diminuir o tamanho da placa e ficar modular. Encontramos os componentes que constituem o driver na Mouser. Os itens listados são as principais peças para a sua montagem.
 
-|            Componente            | Código Componente | Preço Mouser(dólar/un) | Quantidade | Total (dólar) |
-| :------------------------------: | :---------------: | :--------------------: | :--------: | :-----------: |
-|       Driver Duplo Isolado       |         -         |           -            |     -      |       -       |
-| Fonte Chaveada 1 canais Isolados |         -         |           -            |     -      |       -       |
-|     **Compra total Drivers**     |         -         |           -            |     -      |     **-**     |
+|           Componente           | Código Componente | Preço Mouser(Dólar/un) | Quantidade | Total (Dólar) |
+| :----------------------------: | :---------------: | :--------------------: | :--------: | :-----------: |
+|         Driver Isolado         |   FOD3182TSR2V    |          3,10          |     4      |     12,40     |
+| Fonte Chaveada 1 canal Isolado |    R15P21503D     |         10,04          |     4      |     40,16     |
+|    **Compra total Drivers**    |         -         |           -            |     -      |   **52,56**   |
+
+​		Com a cotação do dólar hoje (19/12/2023) em R$4,87, a construção dos 4 drivers isolados fica em torno de R$256,00.
+
+​		A fonte isolada precisa de alimentação linear entre +12 até +24V, como o componente usado já é isolante, precisamos apenas de uma fonte externa para alimentar todos os drivers. Para essa função utilizamos uma fonte chaveada compacta com tensões de entrada entre 100 e 240V AC e é capaz de fornecer até 250 mA em uma tensão de 12 +/- 0.1V, sendo facilmente encontrada no mercado nacional.
+
+|           Componente           | Código Componente | Preço MultComercial(R$/un) | Quantidade | Total (Reais) |
+| :----------------------------: | :---------------: | :------------------------: | :--------: | :-----------: |
+| Fonte Chaveada 1 canal Isolado |     HLK-PM12      |           42,00            |     1      |     42,00     |
+|    **Compra total Drivers**    |         -         |             -              |     -      |   **42,00**   |
+
+
+
+### Transistor
+
+​		O transistor repesenta as chaves para o circuito, será por ele que a tensão do banco DC passará. Precisamos encontrar um transistor que suporte a tensão desejada e de preferência com poucas perdas. Utilizamos o IRF540 pois possui tensão VDS de 100 V, sendo super dimensionado para a aplicação, afim de possuir uma margem para futuras aplicações e encontramos com facilidade no IFSC câmpus Florianópolis e no mercado nacional. 
+
+​		Possui um Rise Time de 45 ns e Fall time de 20 ns, esses dados juntamente com a frequência de operação determinam as perdas de comutação e condução do Mosfet, com valores baixos, as perdas serão menores.
+
+|        Componente        | Código Componente | Preço Poesi(R$/un) | Quantidade | Total (Reais) |
+| :----------------------: | :---------------: | :----------------: | :--------: | :-----------: |
+|    Transistor Mosfet     |      IRF540       |        5,07        |     4      |     20,21     |
+| **Compra total Drivers** |         -         |         -          |     -      |     20,21     |
 
 
 
@@ -181,6 +191,14 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Para vizualizarmos se vai ser possível implementar, o software PSIM possui o componente "μController" mais conhecido como "C Block", onde conseguimos implementar todo o código do microcontrolador e verificar todas suas ondas geradas. O código para implementação pode ser encontrado aqui.
 
+
+
+### Microcontrolador
+
+explicar o micro controlador utilizado, timers, pwm, resolução...
+
+
+
 ### Modulação SPWM
 
 ​		Uma alternativa para o esquema de chaveamento em onda quadrada é a modulação por largura de pulso senoidal. Essa apresenta valores menores de distorção harmônica total da corrente na carga, assim é mais fácil adequar o sistema à DHT necessária para aplicação. A desvantagem desse método é a complexidade de implementação.
@@ -193,7 +211,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 Todos os três dependem de uma senoide (referência) e uma onda triangular (portadora), e são tratados somente para a topologia estudada nesse projeto, o inversor de ponte completa. Os elementos do circuito serão tratados como estão na figura abaixo.
 
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico.JPG)
+![Esquematico](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\Esquematico.JPG)
 
 O conceito de taxa de modulação da frequência (mf) será mencionado, essa é a relação entre as frequências da portadora e da referência:
 $$
@@ -210,7 +228,7 @@ A lógica para as chaves S1,...S4 é a seguinte:
 - S1 e S2 estão ligadas quando Vsen > Vtri  (Vout = +Vcc)
 - S3 e S4 estão ligadas quando Vsen < Vtri  (Vout = -Vcc)
 
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_bipolar.png)
+![demo_bipolar](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_bipolar.png)
 
 
 Para utilizar esse esquema no circuito basta fazer a seguinte alteração no script fornecido: ativar a opção BIPOLAR_SPWM e desative a opção ALT_TRI
@@ -226,7 +244,7 @@ A lógica para as chaves S1,...S4 é a seguinte:
 - S3 está ligada quando -Vsen > Vtri
 - S4 está ligada quando Vsen < Vtri
 
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_unipolar.png)
+![demo_unipolar](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_unipolar.png)
 
 
 Alterações para o script fornecido: Desative as opções BIPOLAR_SPWM e ALT_TRI
@@ -243,29 +261,158 @@ Lógica de chaveamento:
 - S2 está ligada quando Vsen > 0
 - S3 está ligada quando Vsen < 0
 
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/demo_unipolar_alternativa.png)
+![demo_unipolar_alternativa](C:\Users\ramon\Desktop\Ramon\facul\Projeto Integrador 3\demo_unipolar_alternativa.png)
 
 Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opção BIPOLAR_SPWM 
 
-### Comparando Esquemas de Chaveamento
 
-### Resultados Gerais
+
+## Montagem Física
+
+​		Esse tópico abordará a montagem dos circuitos mencionados anteriormente em Placas de Circuito Impresso (PCI), feitas no Laboratório de Protótipos do IFSC câmpus Florianópolis.
+
+​		A construção dos layouts foi utilizado o software KiCad, um aplicativo Open Source que permite construção de placa e sua visualização 3D.
+
+### Drivers
+
+​		Para a construção do Driver precisamos entender de uma coisa, a alimentação 12 V será feita por uma alimentação externa, portanto terá outra referência, após passar pela fonte chaveada isolada a referência será do sinal PWM. O esquemático para o driver será apresentado abaixo.
+
+![Esquematico driver](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Esquematico_driver.PNG)
+
+​		Afim de deixar o circuito de acionamento compacto, utilizamos todos os componentes SMD, diminuindo o tamanho final. Abaixo será apresentado o layout da placa.
+
+![Layout driver](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Layout_driver.PNG)
+
+​		A placa utilizada foi de face simples, precisando colocar um jumper manualmente. Abaixo será apresentado o driver já montado.
+
+![driver montado](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\driver_montado.PNG)
+
+​		Para melhor suporte na placa de potencia, utilizamos barra pino duplo.
+
+### Placa Potência
+
+​		Para a Placa de potência, precisamos separar em 3 referencias diferentes, a primeira sendo da alimentação dos drivers, a segunda sendo do micro controlador com seu sinal SPWM e a terceira sendo o barramento DC com os mosfets. O esquemático será apresentado abaixo.
+
+![Esquematico_Potencia](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Esquematico_Potencia.PNG)
+
+​		A placa inicial de potência (versão 1) foi encontrado erros de posição dos barra pinos e em relação a referência, mesmo com adaptação efetuamos os testes com essa versão apresentada abaixo.
+
+![Layout_potencia_V1](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Layout_potencia_V1.PNG)
+
+​		
+
+​		Com o intuito de arrumar os erros anteriores para futuros projetos, ajustamos os defeitos de layout e a placa de potência final (versão 2) será apresentado abaixo.
+
+![Layout_potencia](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\Layout_potencia.PNG)
+
+​	A placa utilizada foi de face simples, precisando colocar jumpers manualmente. Abaixo será apresentado a placa de potência montada (versão 1).
+
+![potencia_montada](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\potencia_montada.PNG)
+
+
+
+### Montagem Final
+
+​		Com as placas prontas, a montagem foi feita e é demonstrada nas imagens abaixo.
+
+![placa_montada_horizontal](C:\Users\Usuario\Desktop\PI3\esquematicos e pci\imagens\placa_montada_horizontal.PNG)
+
+![placa_montada_vertical](C:\Users\Usuario\Desktop\PI3\esquematicos e pci\imagens\placa_montada_vertical.PNG)
+
+
+
+## Resultados Gerais
+
+​		Esse tópico abordará os resultados do projeto com sinais visualizados pelo osciloscópio.
+
+##### Sinal SPWM
+
+​		A primeira vista, seria simples a criação do SPWM com o STM32F103C8 com seu modelo de comparação interno, porém, se tornou dificultosa e pouco eficiente. A frequência de comparação seria muito baixa não sendo utilizável na topologia do circuito, portanto, passamos a utilizar um sinal PWM para verificar o funcionamento dos drivers e da ponto H (inversor monofásico).
+
+
+
+##### Sinal PWM
+
+​		Para certificar o sinal utilizado, visualizamos o sinal PWM e seu complementar, em primeiro momento possuindo uma frequência de 5 kHz e não podendo serem ativos ao mesmo momento. Utilizamos um dead-time de 1 us para este modelo, muito acima do necessário pois somando o rise time e fall time do mosfet precisaríamos de um dead-time de no mínimo 65 ns, mas para uma melhor segurança, utilizamos 1 us.
+
+​		A figura abaixo demonstra como ficou os sinais PWM juntamente com a frequência no canto inferior direito.
+
+![sinal_pwm](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\sinal_pwm.PNG)
+
+​		O sinal permanece constante e com uma frequência de 5,017 kHz, validando o sinal.
+
+
+
+##### Drivers
+
+​		Começaremos visualizando a saída dos drivers separadamente, afim de encontrar o valor saída no Gate +15 V e -3 V (sinal da fonte chaveada isolada).
+
+​		Aplicando o sinal PWM no driver com a alimentação +12 V, conseguimos o sinal de saída em +16 V e -3 V, sendo o esperado para a aplicação do projeto. A figura abaixo demonstra a saída do driver pelo osciloscópio.
+
+![sinal_driver](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\sinal_driver.PNG)
+
+​		O mesmo teste foi realizado para os 4 drivers e todos apresentaram a mesma forma de onda, validando que a saída está correta e ativará os mosfets.
+
+
+
+##### Ponte H
+
+​		Para testar o funcionamento e verificar se possui algum erro de construção, utilizamos uma tensão no barramento DC de 25 V e apenas um resistor com potência máxima de 3 W.
+
+​		Como foi dito no tópico de construção da placa de potência, houve alguns erros primeiramente e depois os próprios foram consertados, porém, há um erro na placa proveniente dos ajustes fazendo com que não funcione perfeitamente.
+
+​		Vamos visualizar a tensão de cada braço do conversor,  o primeiro braço do inversor será demonstrado na imagem abaixo.
+
+![braco_positivo](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\braco_positivo.PNG)
+
+​		Podemos visualizar que está correto, como o barramento DC é de 25 V, a saída está entre 0 e +25 V pois a referência está sendo o barramento DC.
+
+​		Agora vamos verificar o segundo braço do inversor, que será apresentado na imagem abaixo.
+
+![braco_negativo](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\braco_negativo.PNG)
+
+​		Como podemos visualizar a tensão está entre -12,8 V e 50,4 V, sendo que o correto seria estar com 0 e +25 V pois a referência de medida está sendo o barramento DC. Esse erro é proveniente da montagem da placa de potência, como foi a versão 1 adaptada com jumpers, pode ser uma conexão incorreta ocasionando esse erro. é desconsiderado erro nos drivers pois eles foram testados anteriormente e posteriormente e não foi apresentado erro.
+
+​		Agora utilizando a função MATH do próprio osciloscópio conseguimos verificar a diferença entre os dois braços, sendo apresentado abaixo.
+
+![saida_inversor](C:\Users\Usuario\Desktop\esquematicos e pci\imagens\saida_inversor.PNG)
+
+​		Visualizando o resultado do inversor, a tensão de saída está entre -37,6 V e 75,2 V, diferente do esperado que seria -25 V e +25 V, isso ocorre pois um dos braços não está funcionando corretamente e deve ser ajustado nas próximas aplicações.
+
+
+
+## Considerações Finais
+
+​		A partir dos testes e dos resultados apresentados, podemos concluir que a topologia demonstrada acima funciona. Os erros apresentados foram devidos a placa de potência não estar devidamente construída pois possuía muitas adaptações. Com a versão 2 da placa de potência o resultado ficará muito próximo ao esperado, sem erros.
+
+​		Os drivers funcionam corretamente, acionando os mosfets de forma adequada e com boa qualidade sendo isolados.
+
+
 
 ## Próximos Passos
 
+​		Esse tópico abordará algumas melhorias para o circuito testado e apresentado.
+
+
+
+#### Melhorias:
+
+* Utilizar a versão 2 da placa de potência apresentada
+* Implementação do SPWM, verificando outra maneira de ser implementada
+* Fonte 3.3V para micro controlador
+* Borne para saída do inversor, podendo ajustar o valor da carga externamente
+
+
+
 ## Referências
-
-
-
-explicar o micro controlador utilizado, timers, pwm, resolução...
-
-
-
-
 
 Site compra componentes
 
 https://br.mouser.com/
+
+https://proesi.com.br/
+
+https://www.multcomercial.com.br/
 
 
 
@@ -280,23 +427,16 @@ https://br.mouser.com/datasheet/2/308/1/SG3525A_D-2320132.pdf
 Driver 
 
 http://www.supplier.ind.br/produtos/drivers-para-igbt-e-mosfet/
-https://br.mouser.com/ProductDetail/onsemi/NCP51560ABDWR2G?qs=vvQtp7zwQdNxehcZBK2Y8w%3D%3D
+https://br.mouser.com/ProductDetail/onsemi-Fairchild/FOD3182TSR2V?qs=iQhsftLtcNTyNCxiozQbZg%3D%3D
 
 
 
 Mosfet
 
-https://br.mouser.com/ProductDetail/Infineon-Technologies/IPA50R190CEXKSA2?qs=0DP5yvOrqYltp1qU%2FgDQGQ%3D%3D
-https://br.mouser.com/datasheet/2/196/Infineon_IPA50R190CE_DS_v02_04_EN-3164043.pdf
+https://br.mouser.com/ProductDetail/STMicroelectronics/IRF540?qs=FOlmdCx%252BAA2M1uLloR9EEQ%3D%3D
+
+
 
 Fonte isolada
 http://www.supplier.ind.br/produtos/drivers-para-igbt-e-mosfet/
 https://br.mouser.com/ProductDetail/RECOM-Power/R15P21503D?qs=gt1LBUVyoHkTyvT%2FUCCLXQ%3D%3D
-
-
-
-referências
-
-https://www.citisystems.com.br/pwm/
-
-https://www2.dee.cefetmg.br/wp-content/uploads/sites/18/2017/11/TCC_2017_1_MPUlhoa.pdf
