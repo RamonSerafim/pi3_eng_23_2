@@ -149,7 +149,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Algumas empresas já possuem drivers prontos para vender como a Texas e Mouser, porém, precisamos das fontes isoladas para cada um. A Supplier possui todos os componentes sendo vendido em módulos separados, driver único ou duplo (acionando 1 ou 2 mosfet), fonte isolada para até 2 drivers e retificadores isoladores separadamente.  Como estamos montando um projeto para testes, é benéfico possuir um inversor modular pois caso ocorra algum erro de funcionamento é possível descobrir facilmente onde está sendo gerado e consertá-lo. 
 
-|            Componente            | Código Componente | Preço Supplier(R$/un) | Quantidade | Total (Reais) |
+|            Componente            | Código Componente | Preço Supplier(R$/un) | Quantidade | Total (R$) |
 | :------------------------------: | :---------------: | :-------------------: | :--------: | :-----------: |
 |       Driver Duplo Isolado       |    DRO100D25A     |        640,00         |     2      |    1280,00    |
 | Fonte Chaveada 2 canais Isolados |     DS320-08A     |        180,00         |     1      |    180,00     |
@@ -158,7 +158,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Para este projeto, iremos construir nosso próprio driver isolado, que possui optoacoplador interno, juntamente com uma fonte já isolada para diminuir o tamanho da placa e ficar modular. Encontramos os componentes que constituem o driver na Mouser. Os itens listados são as principais peças para a sua montagem.
 
-|           Componente           | Código Componente | Preço Mouser(Dólar/un) | Quantidade | Total (Dólar) |
+|           Componente           | Código Componente | Preço Mouser(US$/un) | Quantidade | Total (US$) |
 | :----------------------------: | :---------------: | :--------------------: | :--------: | :-----------: |
 |         Driver Isolado         |   FOD3182TSR2V    |          3,10          |     4      |     12,40     |
 | Fonte Chaveada 1 canal Isolado |    R15P21503D     |         10,04          |     4      |     40,16     |
@@ -168,7 +168,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		A fonte isolada precisa de alimentação linear entre +12 até +24V, como o componente usado já é isolante, precisamos apenas de uma fonte externa para alimentar todos os drivers. Para essa função utilizamos uma fonte chaveada compacta com tensões de entrada entre 100 e 240V AC e é capaz de fornecer até 250 mA em uma tensão de 12 +/- 0.1V, sendo facilmente encontrada no mercado nacional.
 
-|           Componente           | Código Componente | Preço MultComercial(R$/un) | Quantidade | Total (Reais) |
+|           Componente           | Código Componente | Preço MultComercial(R$/un) | Quantidade | Total (R$) |
 | :----------------------------: | :---------------: | :------------------------: | :--------: | :-----------: |
 | Fonte Chaveada 1 canal Isolado |     HLK-PM12      |           42,00            |     1      |     42,00     |
 |    **Compra total Drivers**    |         -         |             -              |     -      |   **42,00**   |
@@ -181,7 +181,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Possui um Rise Time de 45 ns e Fall time de 20 ns, esses dados juntamente com a frequência de operação determinam as perdas de comutação e condução do Mosfet, com valores baixos, as perdas serão menores.
 
-|        Componente        | Código Componente | Preço Poesi(R$/un) | Quantidade | Total (Reais) |
+|        Componente        | Código Componente | Preço Poesi(R$/un) | Quantidade | Total (R$) |
 | :----------------------: | :---------------: | :----------------: | :--------: | :-----------: |
 |    Transistor Mosfet     |      IRF540       |        5,07        |     4      |     20,21     |
 | **Compra total Drivers** |         -         |         -          |     -      |     20,21     |
@@ -229,10 +229,9 @@ explicar o micro controlador utilizado, timers, pwm, resolução...
 Todos os três dependem de uma senoide (referência) e uma onda triangular (portadora), e são tratados somente para a topologia estudada nesse projeto, o inversor de ponte completa.
 
 O conceito de taxa de modulação da frequência (mf) será mencionado, essa é a relação entre as frequências da portadora e da referência:
-$$
-mf = {f_{portadora} \over f_{referência}} = {f_{tri} \over f_{sen}}
-$$
- ~~mf = {f_{portadora} \over f_{referência}} = {f_{tri} \over f_{sen}}~~ 
+
+$$mf = {f_{portadora} \over f_{referência}} = {f_{tri} \over f_{sen}}$$
+
 
 ### Bipolar
 
