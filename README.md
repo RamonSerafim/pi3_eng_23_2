@@ -203,7 +203,7 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ### Microcontrolador
 
-    O microcontrolador utilizado foi o STM32F103C8, mais conhecido como Blue Pill, pelo fato de possuir muitos timers, frequência de operação chegando a 72 MHz e por possuir uma função específica para PWM's. É encontrado facilmente no mercado nacional e possui disponibilidade no IFSC câmpus Florianópolis.
+   O microcontrolador utilizado foi o STM32F103C8, mais conhecido como Blue Pill, pelo fato de possuir muitos timers, frequência de operação chegando a 72 MHz e por possuir uma função específica para PWM's. É encontrado facilmente no mercado nacional e possui disponibilidade no IFSC câmpus Florianópolis.
 
 
 ### Modulação SPWM
