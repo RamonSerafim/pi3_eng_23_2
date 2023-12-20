@@ -104,6 +104,10 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Para o acionamento das chaves semicondutoras, é necessário um circuito de controle, onde esse determina a sua tensão de saída, frequência e amplitude de acordo com seu objetivo final. Comumente os semicondutores utilizados são transistores de efeito de campo, MOSFET, os de junção bipolar com porta isolada, IGBT, os de junção bipolar, TBJ, e  tiristores.
 
+    Os elementos do circuito serão tratados como estão na figura abaixo.
+
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico.JPG)
+
 ​		
 
 ## Componentes circuito de controle
@@ -218,9 +222,7 @@ explicar o micro controlador utilizado, timers, pwm, resolução...
 - Unipolar
 - Unipolar Alternativo
 
-Todos os três dependem de uma senoide (referência) e uma onda triangular (portadora), e são tratados somente para a topologia estudada nesse projeto, o inversor de ponte completa. Os elementos do circuito serão tratados como estão na figura abaixo.
-
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico.JPG)
+Todos os três dependem de uma senoide (referência) e uma onda triangular (portadora), e são tratados somente para a topologia estudada nesse projeto, o inversor de ponte completa.
 
 O conceito de taxa de modulação da frequência (mf) será mencionado, essa é a relação entre as frequências da portadora e da referência:
 $$
