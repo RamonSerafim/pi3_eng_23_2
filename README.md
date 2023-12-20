@@ -106,10 +106,9 @@ Elaborar um relatório na qual conste projetar um inversor monofásico para carg
 
 ​		Os inversores são formados por pontes compostas de chaves semicondutoras que são acionadas por algum circuito de controle. Os inversores do tipo fonte de tensão são os mais conhecidos pela necessidade de potências elevadas, afim de acionar motores elétricos com maior potência.
 
-​		Para o acionamento das chaves semicondutoras, é necessário um circuito de controle, onde esse determina a sua tensão de saída, frequência e amplitude de acordo com seu objetivo final. Comumente os semicondutores utilizados são transistores de efeito de campo, MOSFET, os de junção bipolar com porta isolada, IGBT, os de junção bipolar, TBJ, e  tiristores.
-    Os elementos do circuito serão tratados como estão na figura abaixo.
+​		Para o acionamento das chaves semicondutoras, é necessário um circuito de controle, onde esse determina a sua tensão de saída, frequência e amplitude de acordo com seu objetivo final. Comumente os semicondutores utilizados são transistores de efeito de campo, MOSFET, os de junção bipolar com porta isolada, IGBT, os de junção bipolar, TBJ, e  tiristores. Os elementos do circuito serão tratados como estão na figura abaixo.
 
-![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico.JPG)
+![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/Esquematico.PNG)
 
 ​		
 
