@@ -384,7 +384,7 @@ Alterações para o script fornecido: Ativar a opção ALT_TRI e desative a opç
 
 ![](https://github.com/RamonSerafim/pi3_eng_23_2/blob/main/simulations/saida_inversor.PNG)
 
-​		Visualizando o resultado do inversor, a tensão de saída está entre -37,6 V e 75,2 V, diferente do esperado que seria -25 V e +25 V, isso ocorre pois um dos braços não está funcionando corretamente e deve ser ajustado nas próximas aplicações.
+​		Visualizando o resultado do inversor, a tensão de saída está entre -37,6 V e 75,2 V, diferente do esperado que seria -25 V e +25 V, isso ocorre pois um dos braços não está funcionando corretamente e deve ser ajustado nas próximas aplicações. Como o inversor apresenta problemas com carga resistiva, não foi efetuado testes com carga resistiva e indutiva.
 
 
 
